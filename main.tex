@@ -1,0 +1,266 @@
+ \documentclass[12pt, oneside openany]{apa7}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, mexico]{babel}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{amsfonts}
+\usepackage{diagbox}
+\usepackage{wasysym}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{scrextend}
+\usepackage{lipsum}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{flushend}
+\usepackage{wrapfig}
+\setlength{\columnsep}{1cm}
+\usepackage{appendix}
+\usepackage{textcomp}
+\usepackage{tikz}
+\setlength{\parskip}{10px}
+\usepackage{float}
+\usepackage[letterspace=150]{microtype}
+\usepackage{kantlipsum}
+\usepackage{eso-pic}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{minted}
+\usemintedstyle{borland}
+\pagestyle{fancy}
+\usepackage{csquotes}
+
+% Colores de Código
+
+\definecolor{pagina}{RGB}{108, 29, 69}
+
+%Resaltar texto
+%Colores
+
+
+
+\fancyfoot{}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyfoot[R]{\sffamily\fontsize{9pt}{9pt}\selectfont\thepage} % except the center
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}}
+\pagestyle{plain}
+
+\newcommand{\amount}{3.5in}   %%<---- adjust
+
+
+
+%                   
+%----------------------------------------------------------
+   
+ \usepackage[style=apa,
+   sortcites=true,
+   citestyle = apa,
+   sorting=nyt,
+   backend=biber,
+  backref=true]{biblatex}
+   
+\addbibresource{referencias.bib}
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%% Portada %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%--------------------------------------------------------------------------
+
+\lhead[]{\small  Escuela Superior de Economía \\ {\textit{Instituto Politécnico Nacional} }}
+
+\rhead[]{{\small{ \color{pagina} Estudio de los Factores Clínicos Relacionados con  la Diabetes}} \\  \small{ \color{pagina}\textit{Estadística}}}
+
+%--------------------------------------------------------------------------
+%--------------------------------------------------------------------------
+
+\newcommand{\thesisAuthor}{Acurero Gómez Aurimar Arliana \\ Alonso Barradas Luis Gustavo \\ Chávez Velasco Antonio de Jesús\\ Flores Herrera Juba Ariel}
+\newcommand{\thesisTitle}{Análisis de resultados de pruebas de glucosa}
+\newcommand{\thesisSubTitle}{Estadística}
+\newcommand{\thesisDegree}{Dra. Claudia García Blanquel}
+\newcommand{\university}{Instituto Politécnico Nacional  }
+\newcommand{\faculty}{Escuela Superior de Economía}
+\newcommand{\company}{2 de diciembre de 2024}
+
+%------------------------------------------------------------------------------
+%%%%%%%%%%%%%%% Título %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+\thispagestyle{empty}
+
+
+\begin{minipage}{0.5\textwidth}
+		\begin{flushleft} \includegraphics[width=0.4\textwidth]{IPN guinda.pdf}
+			\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+			\begin{flushright} \includegraphics[width=0.4\textwidth]{ESE color.pdf}
+		\end{flushright}
+\end{minipage}\\[.5 cm]
+
+
+\begin{tikzpicture}[overlay, remember picture]
+\node[anchor=south west, 
+      xshift=-0.2cm, 
+      yshift=-0.2cm] 
+     at (current page.south west)
+     {\includegraphics[width = 1.8\textwidth, height = 9cm]{background.png}}; 
+\end{tikzpicture}
+
+
+\vspace{0.5cm}
+\noindent
+\huge
+\textbf{Estudio de los Factores Clínicos Relacionados con  la Diabetes}
+\vspace{0.2cm}
+\Large
+\par
+\noindent
+- Estadística -\\
+\rule[0.3cm]{\linewidth}{2pt}
+\Large
+
+
+\noindent
+
+\begin{center}
+\vspace{1cm}
+\noindent
+\large
+\thesisAuthor\\
+\vspace{2 cm}
+\small
+\par \textbf{\thesisDegree} 
+\par
+\textit{\university}
+\par 
+\faculty
+\par  
+\company
+\par 
+\end{center}
+\end{titlepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty}
+\tableofcontents
+
+\pagebreak
+
+\thispagestyle{empty}
+\listoftables    
+
+\pagebreak
+
+\thispagestyle{empty}
+\listoffigures  
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\AtBeginShipout
+{
+\begin{tikzpicture}[overlay, remember picture]
+\fill[pagina] (17.2,-23.1) rectangle (17.0, -23.0);
+\end{tikzpicture}
+}
+
+{\newpage\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\AtBeginShipout
+{
+\AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    %\hspace*{0.5\paperwidth}%
+    \color{pagina}%
+    \rule{0.0109\paperwidth}{\paperheight}%
+  }%
+}%
+}
+
+
+\spacing{1.0}
+\section{Introducción}
+
+\subsection{Antecedentes}
+
+La diabetes mellitus ha emergido como una de las principales enfermedades crónicas no transmisibles a nivel mundial, con un impacto creciente en la salud pública y la economía global. En los últimos 20 años, el número de personas diagnosticadas con diabetes se ha duplicado, y uno de los aspectos más preocupantes de este aumento es la aparición de la diabetes tipo 2 en niños, adolescentes y adultos jóvenes \parencite{ZIMMET201456}. Esta tendencia destaca la urgencia de abordar la diabetes desde una perspectiva más amplia, considerando no solo los factores de riesgo tradicionales como los genéticos, el estilo de vida y los comportamientos, sino también los mecanismos epigenéticos y el impacto del ambiente intrauterino, los cuales han sido objeto de investigaciones recientes.
+
+En México, la diabetes sigue siendo una de las principales causas de muerte y una de las enfermedades que más carga económica representa en el sistema de salud. Se estima que más de 10 millones de mexicanos viven con diabetes, y más del 50\% de ellos experimentarán complicaciones graves \parencite{Robledo}, como neuropatía y pie diabético, a lo largo de su vida. Estos problemas son responsables de un alto porcentaje de consultas médicas y hospitalizaciones, lo que genera una carga considerable para el sistema sanitario del país.
+
+Por otro lado, los datos epidemiológicos a nivel global predicen un aumento en el gasto de salud relacionado con la diabetes, lo que hace que la prevención de esta enfermedad sea una prioridad. Es fundamental adoptar un enfoque integrado para la prevención de la diabetes tipo 2, considerando sus múltiples orígenes y sus multiples causas. 
+
+El presente trabajo, titulado \textit{Estudio de los Factores Clínicos Relacionados con la Diabetes}, se enfoca en analizar diversos factores clínicos relacionados con el desarrollo de la diabetes, utilizando una base de datos obtenida a través del siguiente link. \url{https://www.kaggle.com/datasets/akshaydattatraykhare/diabetes-dataset} y que incluye información detallada sobre el historial de salud de los pacientes. Las variables que se consideran en este estudio son:
+
+\begin{itemize}
+    \item Pregnancies: Número de embarazos.
+    \item Glucose: Nivel de glucosa en la sangre.
+    \item BloodPressure: Presión arterial.
+    \item SkinThickness: Grosor de la piel.
+    \item Insulin: Nivel de insulina.
+    \item BMI: Índice de Masa Corporal.
+    \item DiabetesPedigreeFunction: Función de parentesco de diabetes, sugiriendo una predisposición genética.
+    \item Age: Edad de la persona.
+    \item Outcome: Indicador de presencia de diabetes (1) o ausencia (0).
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+\subsection{Justificación}
+El incremento de los casos de diabetes entre la población en general
+
+\section{Objetivos de la Investigación}
+
+A través del análisis de los factores ya presentados, el presente trabajo tiene como objetivo identificar las relaciones entre ellos y la presencia de la enfermedad, así como las posibles complicaciones asociadas, es decir se analizaran los factores clínicos asociados con la presencia de diabetes en la población del estudio, con el propósito de identificar los indicadores más relevantes en el diagnóstico de esta condición.
+
+Objetivos Específicos:
+En primer lugar, se busca identificar la relación entre los niveles de glucosa y la probabilidad de diagnóstico de diabetes, explorando si existe un umbral de glucosa particularmente asociado con un mayor riesgo. Asimismo, se pretende examinar el impacto del índice de masa corporal (BMI) en el desarrollo de diabetes, considerando cómo el BMI influye en el riesgo de esta condición en distintos perfiles clínicos.
+
+Además, se analizará cómo el número de embarazos podría influir en la prevalencia de diabetes, especialmente en términos de factores específicos relacionados con la salud reproductiva. De igual modo, se investigará la relación conjunta entre los niveles de insulina y glucosa y la presencia de diabetes, con el fin de identificar patrones clínicos que puedan incrementar el riesgo de esta enfermedad. Finalmente, se evaluará el efecto del factor hereditario (DiabetesPedigreeFunction), en combinación con la edad, sobre la incidencia de diabetes, para determinar si ambos factores juntos incrementan significativamente el riesgo.
+
+\section{Revisión de la literatura}
+
+
+\section{Métodos y Materiales}
+
+
+\section{Resultados}
+
+\section{Conclusiones}
+
+
+\nocite{*}
+\printbibliography
+
+
+
+\end{document}
+
+
+\begin{thebibliography}{2}
+\bibitem{texbook}
+Mora-Morales, Eric. (2014). Estado actual de la diabetes mellitus en el mundo. Acta Médica Costarricense, 56(2), 44-46.
+
+\bibitem{lamport94}
+Leslie Lamport (1994) \emph{\LaTeX: a document preparation system}, Addison
+Wesley, Massachusetts, 2nd ed.
+\end{thebibliography}
